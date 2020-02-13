@@ -7,7 +7,7 @@
   	//**** COMPLETAR
 	//  Deben implementarse los metodos publicos de la clase
 	//****
-Racional:: Raciona(long numerador, long denominador){
+Racional:: Racional(long numerador, long denominador){
 	this->_numer = new long; 
 	this->_denom = new long; 
 
@@ -18,23 +18,23 @@ Racional:: Raciona(long numerador, long denominador){
 	*_numer = numerador; 
 	*_denom = denominador;
 }
-Racional:: Raciona(){
-	this._numer = new long; 
-	this._denom = new long; 
+Racional:: Racional(){
+	this->_numer = new long; 
+	this->_denom = new long; 
 
 	*_numer = 0; 
 	*_denom = 1; 
 }
 
 Racional Racional:: suma(const Racional & frac){
-	return new Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
+	return Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
 
 	//*_numer = (_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)); 
 	//*_denom = mcm(_denom, frac._denom); 
 }
 
-Racional Racional:: operator-(const Racional & frac){
-	return new Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) - frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
+Racional Racional:: operator - (const Racional & frac){
+	return Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) - frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
 
 }
 	
