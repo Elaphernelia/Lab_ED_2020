@@ -44,7 +44,7 @@ Racional Racional:: operator - (const Racional& frac){
 
 Racional& Racional:: operator *=(const Racional & frac){
 	*_numer = *frac._numer * *_numer; 
-	*_numer = *frac._denom * *_denom;
+	*_denom = *frac._denom * *_denom;
 	reduce();
 
 	return *this; 
