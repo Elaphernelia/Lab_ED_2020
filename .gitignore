@@ -5,3 +5,7 @@
 *.filters
 *.user
 *.sln
+.DS_Store
+*.xml
+*.txt
+*.iml
