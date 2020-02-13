@@ -8,12 +8,20 @@ using namespace std;
 
 class Racional {
 public:
+	
+	Racional(long numerador, long denominador); 
+	Racional(); 
+
+	Racional suma(const Racional & frac);
+	
+	Racional operator -(cosnt Racional & frac); 
       //Excepcion que se lanza cuando se trata de crear
 	  //una fraccion con denominador 0
 	class EDenominadorCero {};
       //Excepcion que se lanza cuando se produce una division
       //por 0
 	class EDivisionPorCero {};
+
 
 	//**** COMPLETAR
 	//  Deben declararse los metodos publicos de la clase
