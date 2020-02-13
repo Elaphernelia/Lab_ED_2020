@@ -22,7 +22,7 @@ public:
 
 	Racional& divideYActualiza(const Racional & frac); 
 
-	bool operator ==(const Racional & frac); 
+	bool operator ==(const Racional & frac) const;
 	~Racional(); 
 
       //Excepcion que se lanza cuando se trata de crear

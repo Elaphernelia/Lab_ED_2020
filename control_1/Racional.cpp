@@ -8,15 +8,18 @@
 	//  Deben implementarse los metodos publicos de la clase
 	//****
 Racional:: Racional(long numerador, long denominador){
-	this->_numer = new long; 
-	this->_denom = new long; 
-
-	if (denominador == 0){
+    if (denominador == 0){
 		throw EDenominadorCero(); 
 	}
+    else{
+        
+        this->_numer = new long;
+        this->_denom = new long;
 
-	*_numer = numerador; 
-	*_denom = denominador;
+        *_numer = numerador;
+        *_denom = denominador;
+        reduce();
+    }
 }
 Racional:: Racional(){
 
@@ -27,24 +30,37 @@ Racional:: Racional(){
 }
 
 Racional Racional:: suma(const Racional & frac){
-	Racional num ((*_numer * (frac.mcm(*_denom, *frac._denom) / *_denom) + *frac._numer * (frac.mcm(*_denom, *frac._denom) / *frac._denom)), mcm(*_denom, *frac._denom));
-	num.reduce();
-	return num;
-	//*_numer = (_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)); 
-	//*_denom = mcm(_denom, frac._denom); 
+
+    Racional aux;
+    *aux._numer = (*_numer * (mcm(*_denom, *frac._denom) / *_denom) + *frac._numer * (mcm(*_denom, *frac._denom) / *frac._denom));
+    *aux._denom =  mcm(*_denom, *frac._denom);
+
+	//Racional num ((*_numer * (mcm(*_denom, *frac._denom) / *_denom) + *frac._numer * (mcm(*_denom, *frac._denom) / *frac._denom)), mcm(*_denom, *frac._denom));
+	aux.reduce();
+	return aux;
+	//*_numer = (_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom));
+	//*_denom = mcm(_denom, frac._denom);
 }
 
 Racional Racional:: operator - (const Racional& frac){
-	Racional num ((*_numer * (frac.mcm(*_denom, *frac._denom)/ *_denom) - *frac._numer * (frac.mcm(*_denom, *frac._denom)/ *frac._denom)),mcm(*_denom, *frac._denom) );  
-	num.reduce();
-	return num;
+	//Racional num ((*_numer * (mcm(*_denom, *frac._denom)/ *_denom) - *frac._numer * (mcm(*_denom, *frac._denom)/ *frac._denom)),mcm(*_denom, *frac._denom) );
+	//num.reduce();
+	//return num;
+
+    Racional aux;
+    *aux._numer = (*_numer * (mcm(*_denom, *frac._denom) / *_denom) - *frac._numer * (mcm(*_denom, *frac._denom) / *frac._denom));
+    *aux._denom =  mcm(*_denom, *frac._denom);
+
+    //Racional num ((*_numer * (mcm(*_denom, *frac._denom) / *_denom) + *frac._numer * (mcm(*_denom, *frac._denom) / *frac._denom)), mcm(*_denom, *frac._denom));
+    aux.reduce();
+    return aux;
 }
 
 
 
 Racional& Racional:: operator *=(const Racional & frac){
-	*_numer = *frac._numer * *_numer; 
-	*_denom = *frac._denom * *_denom;
+	*_numer *=   *frac._numer;
+	*_denom *= *frac._denom;
 	reduce();
 
 	return *this; 
@@ -52,7 +68,7 @@ Racional& Racional:: operator *=(const Racional & frac){
 
 Racional& Racional:: divideYActualiza(const Racional & frac){
 	if(*frac._numer == 0){
-		throw EDivisionPorCero(); 
+		throw EDivisionPorCero();
 	}
 
 	*_numer = *_numer * *frac._denom; 
@@ -62,7 +78,7 @@ Racional& Racional:: divideYActualiza(const Racional & frac){
 	return *this; 
 }
 
-bool Racional:: operator ==(const Racional & frac){
+bool Racional:: operator ==(const Racional & frac) const {
 	return (*_numer == *frac._numer ) && (*_denom == *frac._denom); 
 }
 
