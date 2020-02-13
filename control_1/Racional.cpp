@@ -45,18 +45,20 @@ Racional Racional:: operator - (const Racional& frac){
 Racional& Racional:: operator *=(const Racional & frac){
 	*_numer = *frac._numer * *_numer; 
 	*_numer = *frac._denom * *_denom;
+	reduce();
 
 	return *this; 
 }
 
 Racional& Racional:: divideYActualiza(const Racional & frac){
-	if(frac._numer == 0){
+	if(*frac._numer == 0){
 		throw EDivisionPorCero(); 
 	}
 
 	*_numer = *_numer * *frac._denom; 
 	*_denom = *_denom * *frac._numer; 
 
+	reduce();
 	return *this; 
 }
 
