@@ -22,3 +22,7 @@ control_1/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out
 control_1/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out
 control_1/cmake-build-debug/CMakeFiles/Makefile2
 control_1/cmake-build-debug/Makefile
+*.includecache
+*.internal
+*.o
+control_1/cmake-build-debug/control_1
