@@ -1,5 +1,12 @@
 #include "Racional.h"
 
+/*
+ Participantes: SHEPHERD ARÉVALO, ELA KATHERINE y CAMPOVERDE MÉNDEZ, MARLON JONATHAN
+
+ Grupo: 18 
+
+ */
+
    // Codigo de prueba
    // Procesa un archivo de entrada que incluye 0 o mas comandos de las siguiente formas: 
    //      + f1 f2
