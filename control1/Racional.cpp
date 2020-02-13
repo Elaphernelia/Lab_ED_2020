@@ -7,7 +7,7 @@
   	//**** COMPLETAR
 	//  Deben implementarse los metodos publicos de la clase
 	//****
-Racional:: Raciona(long numerador, long denominador){
+Racional:: Racional(long numerador, long denominador){
 	this->_numer = new long; 
 	this->_denom = new long; 
 
@@ -18,7 +18,7 @@ Racional:: Raciona(long numerador, long denominador){
 	*_numer = numerador; 
 	*_denom = denominador;
 }
-Racional:: Raciona(){
+Racional:: Racional(){
 	this._numer = new long; 
 	this._denom = new long; 
 
@@ -37,7 +37,34 @@ Racional Racional:: operator-(const Racional & frac){
 	return new Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) - frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
 
 }
-	
+
+Racional& Racional:: operator *=(conts Racional & frac){
+	*_numer = frac._numer * _numer; 
+	*_numer = frac._denom * _denom;
+
+	return *this; 
+}
+
+Racional& Racional:: divideYActualiza(const Racional & frac){
+	if(frac._numer == 0){
+		throw EDivisionPorCero(); 
+	}
+
+	*_numer = *_numer * frac._denom; 
+	*_denom = *_denom * frac._numer; 
+
+	return *this; 
+}
+
+bool Racional:: operator ==(const Racional & frac){
+	return (*_numer == frac._numer ) && (*_denom == frac._denom); 
+}
+
+Racional:: ~Racional(){
+	delete _numer; 
+	delete _denom; 
+}
+
 // Funciones amigas
 ostream& operator<<(ostream& out, const Racional& f) {
 	out << *f._numer << "/" << *f._denom;
