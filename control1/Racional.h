@@ -13,8 +13,14 @@ public:
 	Racional(); 
 
 	Racional suma(const Racional & frac);
+
+	Racional divideYActualiza(const Racional & frac);
 	
 	Racional operator - (const Racional & frac); 
+
+	Racional operator *= (const Racional & frac); 
+
+	Racional operator == (const Racional & frac); 
       //Excepcion que se lanza cuando se trata de crear
 	  //una fraccion con denominador 0
 	class EDenominadorCero {};

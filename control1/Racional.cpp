@@ -27,15 +27,29 @@ Racional:: Racional(){
 }
 
 Racional Racional:: suma(const Racional & frac){
-	return Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
-
+	Racional num ((*_numer * (frac.mcm(*_denom, *frac._denom) / *_denom) + *frac._numer * (frac.mcm(*_denom, *frac._denom) / *frac._denom)), mcm(*_denom, *frac._denom));
+	num.reduce();
+	return num;
 	//*_numer = (_numer * (frac.mcm(_denom, frac._denom)/_denom) + frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)); 
 	//*_denom = mcm(_denom, frac._denom); 
 }
 
-Racional Racional:: operator - (const Racional & frac){
-	return Racional((_numer * (frac.mcm(_denom, frac._denom)/_denom) - frac._numer * (frac.mcm(_denom, frac._denom)/frac._denom)),mcm(_denom, frac._denom) );  
+Racional Racional:: operator - (const Racional& frac){
+	Racional num ((*_numer * (frac.mcm(*_denom, *frac._denom)/ *_denom) - *frac._numer * (frac.mcm(*_denom, *frac._denom)/ *frac._denom)),mcm(*_denom, *frac._denom) );  
+	num.reduce();
+	return num;
+}
 
+Racional Racional:: operator *= (const Racional& frac){
+	return Racional();
+}
+
+Racional Racional:: divideYActualiza(const Racional & frac){
+	return Racional();
+}
+
+Racional Racional:: operator == (const Racional & frac){
+	return Racional();
 }
 	
 // Funciones amigas
