@@ -19,14 +19,9 @@ Racional:: Racional(long numerador, long denominador){
 	*_denom = denominador;
 }
 Racional:: Racional(){
-<<<<<<< HEAD
-	this._numer = new long; 
-	this._denom = new long; 
-=======
+
 	this->_numer = new long; 
 	this->_denom = new long; 
->>>>>>> 4a22b2186c723d4be1ac2a9421466295243450ba
-
 	*_numer = 0; 
 	*_denom = 1; 
 }
