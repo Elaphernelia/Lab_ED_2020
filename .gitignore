@@ -13,7 +13,6 @@
 *.c
 *.check_cache
 *.bin
-*.cpp
 *.make
 *.marks
 *.log
