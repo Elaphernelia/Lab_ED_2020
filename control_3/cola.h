@@ -66,7 +66,7 @@ public:
     void llevarAlPrincipio(unsigned int pos) {
 
         bool encontrado = false;
-        int i = 1;
+        int i = 0;
         Nodo *nodo = _prim;
 
         Nodo *buscado;
@@ -78,18 +78,19 @@ public:
             }
             else{
                  nodo = nodo->_sig;
-                 i++;
+
             }
+            i++;
         }
-        buscado = nodo->_sig;
-        nodo->_sig = buscado->_sig;
 
-        buscado->_sig = _prim;
-        _prim = buscado;
-
-
-
-
+        if(pos > 1){
+            if(pos < _nelems){
+                nodo->_sig = buscado->_sig;
+            }
+            buscado = nodo->_sig;
+            buscado->_sig = _prim;
+            _prim = buscado;
+        }
 
         // A IMPLEMENTAR
 
