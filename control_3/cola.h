@@ -58,7 +58,7 @@ public:
     **/
 
     /**
-    COMPLEJIDAD: Determinar aquí, justificadamente, la complejidad de esta operación
+    Complejidad: O(n) / lineal.
 
 
     **/
@@ -66,34 +66,37 @@ public:
     void llevarAlPrincipio(unsigned int pos) {
 
         bool encontrado = false;
-        int i = 0;
+        unsigned int i = 1;
         Nodo *nodo = _prim;
 
-        Nodo *buscado;
+        Nodo *buscado = NULL;
 
         while(i < _nelems && !encontrado){
             if(i == pos -1){
-
                 encontrado = true;
             }
             else{
                  nodo = nodo->_sig;
-
             }
             i++;
         }
 
-        if(pos > 1){
-            if(pos < _nelems){
-                nodo->_sig = buscado->_sig;
-            }
-            buscado = nodo->_sig;
-            buscado->_sig = _prim;
-            _prim = buscado;
+		if (pos > _nelems || pos < 1) throw EPosicionInvalida();
+
+		else {
+
+			if (pos > 1){
+				buscado = nodo->_sig;
+				if (pos < _nelems) {
+					nodo->_sig = buscado->_sig;
+				}
+				if (pos == _nelems) {
+					this->_ult = nodo;
+				 }
+				buscado->_sig = _prim;
+				_prim = buscado;		
+			}
         }
-
-        // A IMPLEMENTAR
-
     }
 
     /** Constructor; operacion ColaVacia */
